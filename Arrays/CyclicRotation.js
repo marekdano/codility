@@ -1,5 +1,5 @@
 
-var cyclicRotation = (A, K) => {
+let cyclicRotation = (A, K) => {
   const len = A.length;
   // Check if len and K is value of 0
   if (!len || !K) return A;
