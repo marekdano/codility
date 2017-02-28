@@ -2,13 +2,16 @@ let path = require('path');
 let expect = require('chai').expect;
 
 //var algorithms = require(path.join(__dirname, '..', './testSample'));
-let binaryGap = require(path.join(__dirname, '../Iterations/BinaryGap'));
-let oddOccurencesInArray = require(path.join(__dirname, '../Arrays/oddOccurencesInArray'));
-let cyclicRotation = require(path.join(__dirname, '../Arrays/cyclicRotation'));
-let frogJmp = require(path.join(__dirname, '../TimeComplexity/frogJmp'));
-let permMissingElem = require(path.join(__dirname, '../TimeComplexity/permMissingElem'));
-let tapeEquilibrium = require(path.join(__dirname, '../TimeComplexity/tapeEquilibrium'));
-
+let equi = require(path.join(__dirname, '../Demo/Equi'));
+let binaryGap = require(path.join(__dirname, '../1.Iterations/BinaryGap'));
+let oddOccurencesInArray = require(path.join(__dirname, '../2.Arrays/oddOccurencesInArray'));
+let cyclicRotation = require(path.join(__dirname, '../2.Arrays/cyclicRotation'));
+let frogJmp = require(path.join(__dirname, '../3.TimeComplexity/frogJmp'));
+let permMissingElem = require(path.join(__dirname, '../3.TimeComplexity/permMissingElem'));
+let tapeEquilibrium = require(path.join(__dirname, '../3.TimeComplexity/tapeEquilibrium'));
+let missingInteger = require(path.join(__dirname, '../4.CountingElements/MissingInteger'));
+let permCheck = require(path.join(__dirname, '../4.CountingElements/PermCheck'));
+let frogRiverOne = require(path.join(__dirname, '../4.CountingElements/FrogRiverOne'));
 // 
 // describe('algorithms()', function () {
 //   'use strict';
@@ -23,6 +26,19 @@ let tapeEquilibrium = require(path.join(__dirname, '../TimeComplexity/tapeEquili
 //   });
 // });
 
+describe('equi function', () => {
+  it('exists', () => {
+    expect(equi).to.be.a('function');
+  });
+
+  it('equi([-1,3,-4,5,1,-6,2,1], 8)', () => {
+    expect(equi([-1,3,-4,5,1,-6,2,1]))
+      .to
+      .satisfy((num) => { 
+        return num === 1 || num === 3 || num === 7;
+    });
+  });
+});
 
 
 describe('binaryGap function', () => {
@@ -40,6 +56,14 @@ describe('binaryGap function', () => {
 
   it('binaryGap(545)', () => {
     expect(binaryGap(545)).to.equal(4);
+  });
+
+  it('binaryGap(1376796946)', () => {
+    expect(binaryGap(1376796946)).to.equal(5);
+  });
+
+  it('binaryGap(74901729)', () => {
+    expect(binaryGap(74901729)).to.equal(4);
   });
 });
 
@@ -104,5 +128,43 @@ describe('tapeEquilibrium function', () => {
 
   it('tapeEquilibrium([3,1,2,4,3], 5)', () => {
     expect(tapeEquilibrium([3,1,2,4,3], 5)).to.equal(1);
+  });
+});
+
+describe('missingInteger function', () => {
+  it('exists', () => {
+    expect(missingInteger).to.be.a('function');
+  });
+
+  it('missingInteger([1,3,6,4,1,2])', () => {
+    expect(missingInteger([1,3,6,4,1,2])).to.equal(5);
+  });
+});
+
+describe('permCheck function', () => {
+  it('exists', () => {
+    expect(permCheck).to.be.a('function');
+  });
+
+  it('permCheck([4,1,3,2])', () => {
+    expect(permCheck([4,1,3,2])).to.equal(1);
+  });
+
+  it('permCheck([4,1,3])', () => {
+    expect(permCheck([4,1,3])).to.equal(0);
+  })
+});
+
+describe('frogRiverOne function', () => {
+  it('exists', () => {
+    expect(frogRiverOne).to.be.a('function');
+  });
+
+  it('frogRiverOne([1,3,1,4,2,3,5,4], 5)', () => {
+    expect(frogRiverOne([1,3,1,4,2,3,5,4], 5)).to.equal(6);
+  });
+
+  it('frogRiverOne([4,2,3,5,4], 5)', () => {
+    expect(frogRiverOne([4,1,3], 5)).to.equal(-1);
   });
 });

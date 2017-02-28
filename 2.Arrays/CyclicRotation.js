@@ -13,7 +13,7 @@ let cyclicRotation = (A, K) => {
   K = K % len;
   let part = A.splice(len - K);
   return part.concat(A);
-}
+};
 
 
 module.exports = cyclicRotation;
