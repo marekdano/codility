@@ -12,6 +12,8 @@ let tapeEquilibrium = require(path.join(__dirname, '../3.TimeComplexity/tapeEqui
 let missingInteger = require(path.join(__dirname, '../4.CountingElements/MissingInteger'));
 let permCheck = require(path.join(__dirname, '../4.CountingElements/PermCheck'));
 let frogRiverOne = require(path.join(__dirname, '../4.CountingElements/FrogRiverOne'));
+let countDivs = require(path.join(__dirname, '../5.PrefixSums/CountDivs'));
+let passingCars = require(path.join(__dirname, '../5.PrefixSums/PassingCars'));
 // 
 // describe('algorithms()', function () {
 //   'use strict';
@@ -166,5 +168,25 @@ describe('frogRiverOne function', () => {
 
   it('frogRiverOne([4,2,3,5,4], 5)', () => {
     expect(frogRiverOne([4,1,3], 5)).to.equal(-1);
+  });
+});
+
+describe('countDivs function', () => {
+  it('exists', () => {
+    expect(countDivs).to.be.a('function');
+  });
+
+  it('countDivs(6,11,2)', () => {
+    expect(countDivs(6,11,2)).to.equal(3);
+  });
+});
+
+describe('passingCars function', () => {
+  it('exists', () => {
+    expect(passingCars).to.be.a('function');
+  });
+
+  it('passingCars([0,1,0,1,1])', () => {
+    expect(passingCars([0,1,0,1,1])).to.equal(5);
   });
 });
