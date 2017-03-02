@@ -14,7 +14,10 @@ let permCheck = require(path.join(__dirname, '../4.CountingElements/PermCheck'))
 let frogRiverOne = require(path.join(__dirname, '../4.CountingElements/FrogRiverOne'));
 let countDivs = require(path.join(__dirname, '../5.PrefixSums/CountDivs'));
 let passingCars = require(path.join(__dirname, '../5.PrefixSums/PassingCars'));
-// 
+let distinct = require(path.join(__dirname, '../6.Sorting/Distinct'));
+let maxProductOfThree = require(path.join(__dirname, '../6.Sorting/maxProductOfThree'));
+let triangle = require(path.join(__dirname, '../6.Sorting/triangle'));
+
 // describe('algorithms()', function () {
 //   'use strict';
 
@@ -188,5 +191,55 @@ describe('passingCars function', () => {
 
   it('passingCars([0,1,0,1,1])', () => {
     expect(passingCars([0,1,0,1,1])).to.equal(5);
+  });
+});
+
+describe('distinct function', () => {
+  it('exists', () => {
+    expect(distinct).to.be.a('function');
+  });
+
+  it('distinct([2,1,1,2,3,1])', () => {
+    expect(distinct([2,1,1,2,3,1])).to.equal(3);
+  });
+
+  it('distinct([2,1,2,3,3])', () => {
+    expect(distinct([2,1,2,3,3])).to.equal(3);
+  });
+
+  it('distinct([2,1,2,3,3,4])', () => {
+    expect(distinct([2,1,2,3,3,4])).to.equal(4);
+  });
+
+  it('distinct([2,1,2,1,3,3,4,4])', () => {
+    expect(distinct([2,1,2,1,3,3,4,4])).to.equal(4);
+  });
+});
+
+describe('maxProductOfThree function', () => {
+  it('exists', () => {
+    expect(maxProductOfThree).to.be.a('function');
+  });
+
+  it('maxProductOfThree([-3,1,2,-2,5,6])', () => {
+    expect(maxProductOfThree([-3,1,2,-2,5,6])).to.equal(60);
+  });
+
+  it('maxProductOfThree([-10, -2, -4])', () => {
+    expect(maxProductOfThree([-10, -2, -4])).to.equal(-80);
+  });
+});
+
+describe('triangle function', () => {
+  it('exists', () => {
+    expect(triangle).to.be.a('function');
+  });
+
+  it('triangle([10,2,5,1,8,20])', () => {
+    expect(triangle([10,2,5,1,8,20])).to.equal(1);
+  });
+
+  it('triangle([10,5,50,100])', () => {
+    expect(triangle([10,5,50,100])).to.equal(0);
   });
 });
