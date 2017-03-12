@@ -17,6 +17,10 @@ let passingCars = require(path.join(__dirname, '../5.PrefixSums/PassingCars'));
 let distinct = require(path.join(__dirname, '../6.Sorting/Distinct'));
 let maxProductOfThree = require(path.join(__dirname, '../6.Sorting/maxProductOfThree'));
 let triangle = require(path.join(__dirname, '../6.Sorting/triangle'));
+let brackets = require(path.join(__dirname, '../7.StacksAndQueues/brackets'));
+let nesting = require(path.join(__dirname, '../7.StacksAndQueues/nesting'));
+let dominator = require(path.join(__dirname, '../8.Leader/dominator'));
+let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/CountFactors'));
 
 // describe('algorithms()', function () {
 //   'use strict';
@@ -241,5 +245,61 @@ describe('triangle function', () => {
 
   it('triangle([10,5,50,100])', () => {
     expect(triangle([10,5,50,100])).to.equal(0);
+  });
+});
+
+describe('brackets function', () => {
+  it('exists', () => {
+    expect(brackets).to.be.a('function');
+  });
+
+  it('brackets("{[()()]}")', () => {
+    expect(brackets("{[()()]}")).to.equal(1);
+  });
+
+  it('brackets("([)()]")', () => {
+    expect(brackets("([)()]")).to.equal(0);
+  });
+
+  it('brackets("())")', () => {
+    expect(brackets("())")).to.equal(0);
+  });
+});
+
+describe('nesting function', () => {
+  it('exists', () => {
+    expect(nesting).to.be.a('function');
+  });
+
+  it('nesting("(()(())())")', () => {
+    expect(nesting("(()(())())")).to.equal(1);
+  }); 
+
+  it('nesting("())")', () => {
+    expect(nesting("())")).to.equal(0);
+  }); 
+});
+
+describe('dominator function', () => {
+  it('exists', () => {
+    expect(dominator).to.be.a('function');
+  });
+
+  it('dominator([3,4,3,2,3,-1,3,3])', () => {
+    expect(dominator([3,4,3,2,3,-1,3,3]))
+      .to
+      .satisfy((num) => { 
+        return num === 0 || num === 2 || num === 4 || num === 6 || num === 7;
+    });
+  });
+});
+
+describe('countFactors function', () => {
+  it('exists', () => {
+    expect(countFactors).to.be.a('function');
+  });
+
+  it('countFactors(24)', () => {
+    expect(countFactors(24)).to.equal(8);
   });
 });
