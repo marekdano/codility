@@ -21,6 +21,7 @@ let brackets = require(path.join(__dirname, '../7.StacksAndQueues/brackets'));
 let nesting = require(path.join(__dirname, '../7.StacksAndQueues/nesting'));
 let dominator = require(path.join(__dirname, '../8.Leader/dominator'));
 let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/CountFactors'));
+let checkSingleSwap = require(path.join(__dirname, '../Extra/CheckSingleSwap'));
 
 // describe('algorithms()', function () {
 //   'use strict';
@@ -301,5 +302,47 @@ describe('countFactors function', () => {
 
   it('countFactors(24)', () => {
     expect(countFactors(24)).to.equal(8);
+  });
+});
+
+describe('checkSingleSwap function', () => {
+  it('exists', () => {
+    expect(checkSingleSwap).to.be.a('function');
+  });
+
+  it('checkSingleSwap([1,2])', () => {
+    expect(checkSingleSwap([1,2])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,3,5])', () => {
+    expect(checkSingleSwap([1,3,5])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,5,3])', () => {
+    expect(checkSingleSwap([1,5,3])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,5,3,3,7])', () => {
+    expect(checkSingleSwap([1,5,3,3,7])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,2,6,3,4,5])', () => {
+    expect(checkSingleSwap([1,2,6,3,4,5])).to.equal(false);
+  });
+
+  it('checkSingleSwap([1,9,6,3])', () => {
+    expect(checkSingleSwap([1,9,6,3])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,3,6,3,5,5,3,7,7])', () => {
+    expect(checkSingleSwap([1,3,6,3,5,5,3,7,7])).to.equal(true);
+  });
+
+  it('checkSingleSwap([1,4,5,6,7,2])', () => {
+    expect(checkSingleSwap([1,4,5,6,7,2])).to.equal(false);
+  });
+
+  it('checkSingleSwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,123,124,1245566778])', () => {
+    expect(checkSingleSwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,123,124,1245566778])).to.equal(false);
   });
 });
