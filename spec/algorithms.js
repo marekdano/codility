@@ -22,6 +22,7 @@ let nesting = require(path.join(__dirname, '../7.StacksAndQueues/nesting'));
 let dominator = require(path.join(__dirname, '../8.Leader/dominator'));
 let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/CountFactors'));
 let checkSingleSwap = require(path.join(__dirname, '../Extra/CheckSingleSwap'));
+let wholeSquaresInInterval = require(path.join(__dirname, '../Extra/WholeSquaresInInterval'));
 
 // describe('algorithms()', function () {
 //   'use strict';
@@ -344,5 +345,27 @@ describe('checkSingleSwap function', () => {
 
   it('checkSingleSwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,123,124,1245566778])', () => {
     expect(checkSingleSwap([1,2,3,4,5,6,7,8,9,10,11,2,45,56,67,78,89,90,123,124,1245566778])).to.equal(false);
+  });
+});
+
+describe('wholeSquaresInInterval function', () => {
+  it('exists', () => {
+    expect(wholeSquaresInInterval).to.be.a('function');
+  });
+
+  it('wholeSquaresInInterval(4, 17)', () => {
+    expect(wholeSquaresInInterval(4, 17)).to.equal(3);
+  });
+
+  it('wholeSquaresInInterval(-240, 17)', () => {
+    expect(wholeSquaresInInterval(-240, 17)).to.equal(14);
+  });
+
+  it('wholeSquaresInInterval(-240, 350)', () => {
+    expect(wholeSquaresInInterval(-240, 350)).to.equal(17);
+  });
+
+  it('wholeSquaresInInterval(-2147483648, 2147483648)', () => {
+    expect(wholeSquaresInInterval(-2147483648, 2147483648)).to.equal(46339);
   });
 });
