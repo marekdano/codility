@@ -58,9 +58,9 @@ let getMaxProfit = (stockPricesYesterday) => {
 	return maxProfit;
 }
 
-// TEST Cases
-var stockPricesYesterday = [10, 7, 5, 8, 11, 9];
-stockPricesYesterday = [10, 2, 5, -4.1, -1,8];
-stockPricesYesterday = [10, 2, 5, -10, -5, -2];
+// TEST Cases in spec/interviewCakeTestCases.js
+// [10, 7, 5, 8, 11, 9];
+// [10, 2, 5, -4.1, -1,8];
+// [10, 2, 5, -10, -5, -2];
 
-console.log(getMaxProfit(stockPricesYesterday));
+module.exports = getMaxProfit;

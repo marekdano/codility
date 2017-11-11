@@ -24,6 +24,8 @@ let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/
 let checkSingleSwap = require(path.join(__dirname, '../Extra/CheckSingleSwap'));
 let wholeSquaresInInterval = require(path.join(__dirname, '../Extra/WholeSquaresInInterval'));
 
+//let interviewCakesTestCases = require(path.join(__dirname, './interviewCakesTestCases'));
+
 // describe('algorithms()', function () {
 //   'use strict';
 
