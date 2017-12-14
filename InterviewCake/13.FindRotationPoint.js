@@ -50,12 +50,10 @@ let searchPoint = (words) => {
 				break;
 		}
 	}
-	return ceilingIndex;
+	//return ceilingIndex;
+
+	// check if array is rotated. If not return 0 eitherwise the index of rotated point 
+	return ceilingIndex === -1 || words[ceilingIndex] > words[0] ? 0 : ceilingIndex;
 }
-
-// TODO: write more test cases
-
-// test case
-const words = ['k','v','a','b','c','d','e','g','i'];
 												
 module.exports = searchPoint;
