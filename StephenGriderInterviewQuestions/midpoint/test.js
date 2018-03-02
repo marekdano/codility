@@ -43,4 +43,31 @@ describe("Midpoint returns the middle node of an even numbered list", () => {
     l.insertLast("d");
     expect(midpoint(l).data).toEqual("b");
   });
+
+  test("when the list has 4 elements", () => {
+    const l = new LinkedList();
+    l.insertLast("a");
+    l.insertLast("b");
+    l.insertLast("c");
+    l.insertLast("d");
+    l.insertLast("e");
+    l.insertLast("f");
+    l.insertLast("g");
+    expect(midpoint(l).data).toEqual("d");
+  });
+
+  test("when the list has 4 elements", () => {
+    const l = new LinkedList();
+    l.insertLast("a");
+    l.insertLast("b");
+    l.insertLast("c");
+    l.insertLast("d");
+    l.insertLast("e");
+    l.insertLast("f");
+    l.insertLast("g");
+    l.insertLast("h");
+    l.insertLast("i");
+    l.insertLast("j");
+    expect(midpoint(l).data).toEqual("e");
+  });
 });
