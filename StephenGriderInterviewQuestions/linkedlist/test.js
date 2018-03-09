@@ -60,6 +60,13 @@ describe("GetLast", () => {
   });
 });
 
+describe("GetLast when head is null", () => {
+  test("returns the last element", () => {
+    const l = new List();
+    expect(l.getLast()).toEqual(null);
+  });
+});
+
 describe("Clear", () => {
   test("empties out the list", () => {
     const l = new List();
