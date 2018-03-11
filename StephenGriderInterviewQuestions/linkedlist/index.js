@@ -82,6 +82,26 @@ class LinkedList {
       this.head = node;
     }
   }
+
+  getAt(index) {
+    if (index < 0) {
+      throw Error("Index must be higher than 0.");
+    }
+
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+
+      node = node.next;
+      counter++;
+    }
+
+    return null;
+  }
 }
 
 module.exports = { Node, LinkedList };
