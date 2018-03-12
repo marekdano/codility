@@ -102,6 +102,26 @@ class LinkedList {
 
     return null;
   }
+
+  removeAt(index) {
+    if (index < 0) {
+      throw Error("Index must be higher than 0.");
+    }
+
+    if (!this.head) {
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+    }
+
+    const previous = index > 0 && this.getAt(index - 1);
+    if (!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
+  }
 }
 
 module.exports = { Node, LinkedList };
