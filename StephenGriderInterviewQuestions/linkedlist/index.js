@@ -122,6 +122,29 @@ class LinkedList {
     }
     previous.next = previous.next.next;
   }
+
+  insertAt(data, index) {
+    if (index < 0) {
+      throw Error("Index must be higher than 0.");
+    }
+
+    const node = new Node(data);
+
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+
+    if (index === 0) {
+      node.next = this.head;
+      this.head = node;
+      return;
+    }
+
+    const previous = (index > 0 && this.getAt(index - 1)) || this.getLast();
+    node.next = previous.next;
+    previous.next = node;
+  }
 }
 
 module.exports = { Node, LinkedList };
