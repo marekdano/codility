@@ -17,7 +17,33 @@
  */
 
 let bracketValidator = str => {
-  return null;
+  let bracketStack = [];
+  const openersToClosers = {
+    "{": "}",
+    "[": "]",
+    "(": ")"
+  };
+
+  const openers = new Set(["{", "[", "("]);
+  const closers = new Set(["}", "]", ")"]);
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (openers.has(char)) {
+      bracketStack.push(char);
+    } else if (closers.has(char)) {
+      if (!bracketStack.length) {
+        return false;
+      } else {
+        const lastOpener = bracketStack.pop();
+
+        if (openersToClosers[lastOpener] !== char) {
+          return false;
+        }
+      }
+    }
+  }
+  return bracketStack.length === 0;
 };
 
 module.exports = bracketValidator;

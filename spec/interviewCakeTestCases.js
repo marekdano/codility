@@ -174,15 +174,15 @@ describe("BracketValidator function", () => {
     expect(bracketValidator).to.be.a("function");
   });
 
-  it("should return true", () => {
+  it("should return true for '{[]()}'", () => {
     expect(bracketValidator("{[]()}")).to.equal(true);
   });
 
-  it("should return true", () => {
+  it("should return false for '{[(])}'", () => {
     expect(bracketValidator("{[(])}")).to.equal(false);
   });
 
-  it("should return true", () => {
+  it("should return false for '{[}'", () => {
     expect(bracketValidator("{[}")).to.equal(false);
   });
 });
