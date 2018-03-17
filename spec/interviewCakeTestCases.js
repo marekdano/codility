@@ -16,6 +16,11 @@ let find_kth = require(path.join(
   "../InterviewCake/25.Find_k-th_inLinkedList"
 ));
 
+let bracketValidator = require(path.join(
+  __dirname,
+  "../InterviewCake/29.BracketValidator.js"
+));
+
 const LinkedListNode = find_kth.LinkedListNode;
 const kthToLastNode = find_kth.kthToLastNode;
 
@@ -161,5 +166,23 @@ describe("kthToLastNode function", () => {
     expect(() => kthToLastNode(0, a)).to.throw(
       "Impossible to find less than first to last node: 0"
     );
+  });
+});
+
+describe("BracketValidator function", () => {
+  it("exists", () => {
+    expect(bracketValidator).to.be.a("function");
+  });
+
+  it("should return true", () => {
+    expect(bracketValidator("{[]()}")).to.equal(true);
+  });
+
+  it("should return true", () => {
+    expect(bracketValidator("{[(])}")).to.equal(false);
+  });
+
+  it("should return true", () => {
+    expect(bracketValidator("{[}")).to.equal(false);
   });
 });
