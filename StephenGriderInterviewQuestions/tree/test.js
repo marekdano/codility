@@ -42,12 +42,14 @@ describe("Tree", () => {
     t.root.add("b");
     t.root.add("c");
     t.root.children[0].add("d");
+    t.root.children[0].add("e");
+    t.root.children[1].add("f");
 
     t.traverseBF(node => {
       letters.push(node.data);
     });
 
-    expect(letters).toEqual(["a", "b", "c", "d"]);
+    expect(letters).toEqual(["a", "b", "c", "d", "e", "f"]);
   });
 
   test("Can traverse DF", () => {
@@ -55,13 +57,15 @@ describe("Tree", () => {
     const t = new Tree();
     t.root = new Node("a");
     t.root.add("b");
-    t.root.add("d");
+    t.root.add("e");
     t.root.children[0].add("c");
+    t.root.children[0].add("d");
+    t.root.children[1].add("f");
 
     t.traverseDF(node => {
       letters.push(node.data);
     });
 
-    expect(letters).toEqual(["a", "b", "c", "d"]);
+    expect(letters).toEqual(["a", "b", "c", "d", "e", "f"]);
   });
 });
