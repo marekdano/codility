@@ -41,6 +41,47 @@
  *
  */
 
-let findSecondLargestElem = str => {};
+let findLargest1 = function(rootNode) {
+  if (!rootNode) {
+    throw new Error("Tree must have at least 1 node");
+  }
+  if (rootNode.right) {
+    return findLargest(rootNode.right);
+  }
+  return rootNode.value;
+};
+
+// or another solution
+let findLargest = function(rootNode) {
+  var current = rootNode;
+  while (current) {
+    if (!current.right) return current.value;
+    current = current.right;
+  }
+};
+
+let findSecondLargestElem = function(rootNode) {
+  if (!rootNode || (!rootNode.left && !rootNode.right)) {
+    throw new Error("Tree must have at least 2 nodes");
+  }
+
+  var current = rootNode;
+
+  while (current) {
+    // case: current is largest and has a left subtree
+    // 2nd largest is the largest in that subtree
+    if (current.left && !current.right) {
+      return findLargest(current.left);
+    }
+
+    // case: current is parent of largest, and largest has no children,
+    // so current is 2nd largest
+    if (current.right && !current.right.left && !current.right.right) {
+      return current.value;
+    }
+
+    current = current.right;
+  }
+};
 
 module.exports = findSecondLargestElem;
