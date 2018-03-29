@@ -6,6 +6,15 @@ let getMaxProfit = require(path.join(
   "../InterviewCake/1.AppleStocks"
 ));
 
+let BinaryTreeNode = require(path.join(
+  __dirname,
+  "../InterviewCake/shared/BSTNode"
+));
+let secondLargestInBST = require(path.join(
+  __dirname,
+  "../InterviewCake/10.SecondLargestInBST"
+));
+
 let searchPoint = require(path.join(
   __dirname,
   "../InterviewCake/13.FindRotationPoint"
@@ -75,6 +84,39 @@ describe("searchPoint function", () => {
     expect(searchPoint(["a", "b", "c", "d", "e", "g", "i", "k", "v"])).to.equal(
       0
     );
+  });
+});
+
+describe("secondLargestInBST function", () => {
+  it("exists", () => {
+    expect(secondLargestInBST).to.be.a("function");
+  });
+
+  it("should return node with value 11 in tree with left node only", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const twelve = eight.insertRight(12);
+    const ten = twelve.insertLeft(10);
+    const nine = ten.insertLeft(9);
+    const eleven = ten.insertRight(11);
+
+    expect(secondLargestInBST(rootNode)).to.equal(11);
+  });
+
+  it("should return node with value 8 in tree with left node only", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const nine = eight.insertRight(9);
+
+    expect(secondLargestInBST(rootNode)).to.equal(8);
   });
 });
 
