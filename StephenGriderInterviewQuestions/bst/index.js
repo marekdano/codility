@@ -12,6 +12,12 @@
 // and return the Node in the tree with the same value.
 // If the value isn't in the tree return null.
 
-class Node {}
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
 
 module.exports = Node;
