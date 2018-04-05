@@ -3,6 +3,10 @@
 // Events class.  The Events class should
 // have methods 'on', 'trigger', and 'off'.
 
-class Events {}
+class Events {
+  constructor() {
+    this.events = {};
+  }
+}
 
 module.exports = Events;
