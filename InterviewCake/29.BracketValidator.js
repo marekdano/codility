@@ -16,6 +16,10 @@
  *  "{ [ }" should return false
  */
 
+// SOLUTION
+// O(n) time (one iteration through the string),
+// and O(n)O(n) space (in the worst case, all of our characters are openers, so we push them all onto the stack).
+
 let bracketValidator = str => {
   let bracketStack = [];
   const openersToClosers = {
