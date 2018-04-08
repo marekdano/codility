@@ -33,6 +33,11 @@ let bracketValidator = require(path.join(
 const LinkedListNode = find_kth.LinkedListNode;
 const kthToLastNode = find_kth.kthToLastNode;
 
+let reverseWords = require(path.join(
+  __dirname,
+  "../InterviewCake/27.ReverseWords"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -226,5 +231,48 @@ describe("BracketValidator function", () => {
 
   it("should return false for '{[}'", () => {
     expect(bracketValidator("{[}")).to.equal(false);
+  });
+});
+
+describe("ReverseWords function", () => {
+  it("exists", () => {
+    expect(reverseWords).to.be.a("function");
+  });
+
+  it("should return 'steal pound cake'", () => {
+    expect(
+      reverseWords([
+        "c",
+        "a",
+        "k",
+        "e",
+        " ",
+        "p",
+        "o",
+        "u",
+        "n",
+        "d",
+        " ",
+        "s",
+        "t",
+        "e",
+        "a",
+        "l"
+      ])
+    ).to.equal("steal pound cake");
+  });
+
+  it("should return 'cake'", () => {
+    expect(reverseWords(["c", "a", "k", "e"])).to.equal("cake");
+  });
+
+  it("should return 'steal cake'", () => {
+    expect(
+      reverseWords(["c", "a", "k", "e", " ", "s", "t", "e", "a", "l"])
+    ).to.equal("steal cake");
+  });
+
+  it("should return empty string", () => {
+    expect(reverseWords([])).to.equal("");
   });
 });
