@@ -19,6 +19,9 @@
  * When writing your function, assume the message contains only letters and spaces, and all words are separated by one space.
  */
 
+// COMPLEXITY
+// O(n) time and O(1)O(1) space!
+
 let reverseWords = message => {
   // first we reverse all the characters in the entire message
   reverseCharacters(message, 0, message.length - 1);
