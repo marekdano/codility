@@ -1,5 +1,6 @@
-const S = require("./index").default;
+const S = require("./index");
 const bubbleSort = S.bubbleSort;
+const selectionSort = S.selectionSort;
 
 function getArray() {
   return [100, -40, 500, -124, 0, 21, 7];

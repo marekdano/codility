@@ -1,7 +1,6 @@
 // Implement bubbleSort, selectionSort, and mergeSort
 
 function bubbleSort(arr) {
-  // Implement bubblesort
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -12,4 +11,21 @@ function bubbleSort(arr) {
   return arr;
 }
 
-module.exports = { bubbleSort };
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let indexOfMin = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[indexOfMin]) {
+        indexOfMin = j;
+      }
+    }
+
+    if (i !== indexOfMin) {
+      [arr[i], arr[indexOfMin]] = [arr[indexOfMin], arr[i]];
+    }
+  }
+  return arr;
+}
+
+module.exports = { bubbleSort, selectionSort };
