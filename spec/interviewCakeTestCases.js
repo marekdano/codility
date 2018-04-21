@@ -10,6 +10,12 @@ let BinaryTreeNode = require(path.join(
   __dirname,
   "../InterviewCake/shared/BSTNode"
 ));
+
+let LinkedListNode = require(path.join(
+  __dirname,
+  "../InterviewCake/shared/LinkedListNode"
+));
+
 let secondLargestInBST = require(path.join(
   __dirname,
   "../InterviewCake/10.SecondLargestInBST"
@@ -30,12 +36,17 @@ let bracketValidator = require(path.join(
   "../InterviewCake/29.BracketValidator.js"
 ));
 
-const LinkedListNode = find_kth.LinkedListNode;
+//const LinkedListNode = find_kth.LinkedListNode;
 const kthToLastNode = find_kth.kthToLastNode;
 
 let reverseWords = require(path.join(
   __dirname,
   "../InterviewCake/27.ReverseWords"
+));
+
+let containsCycle = require(path.join(
+  __dirname,
+  "../InterviewCake/23.CycledLinkedList"
 ));
 
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
@@ -274,5 +285,38 @@ describe("ReverseWords function", () => {
 
   it("should return empty string", () => {
     expect(reverseWords([])).to.equal("");
+  });
+});
+
+describe("containsCycle function", () => {
+  it("exists", () => {
+    expect(containsCycle).to.be.a("function");
+  });
+
+  it("should return false when linked list is cycled", () => {
+    const rootNode = new LinkedListNode(0);
+    const node1 = new LinkedListNode(1);
+    const node2 = new LinkedListNode(2);
+
+    rootNode.next = node1;
+    node1.next = node2;
+
+    expect(containsCycle(rootNode)).to.equal(false);
+  });
+
+  it("should return true when linked list is cycled", () => {
+    const rootNode = new LinkedListNode(0);
+    const node1 = new LinkedListNode(1);
+    const node2 = new LinkedListNode(2);
+    const node3 = new LinkedListNode(3);
+    const node4 = new LinkedListNode(4);
+
+    rootNode.next = node1;
+    node1.next = node2;
+    node2.next = node3;
+    node3.next = node4;
+    node4.next = node2;
+
+    expect(containsCycle(rootNode)).to.equal(true);
   });
 });
