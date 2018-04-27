@@ -9,34 +9,28 @@
  * Your stacks will contain only integers.
  */
 
-function Stack() {
-  // initialize an empty array
-  this.items = [];
+let Stack = require(path.join(__dirname, "./shared/Stack"));
+
+function MaxStack() {
+  this.stack = new Stack();
+  this.maxesStack = new Stack();
 }
 
-// push a new item to the last index
-Stack.prototype.push = function(item) {
-  this.items.push(item);
+// Add a new item to the top of our stack. If the item is greater
+// than or equal to the last item in maxesStack, it's
+// the new max! So we'll add it to maxesStack.
+MaxStack.prototype.push = function(item) {
+  this.stack.push(item);
 };
 
-// remove the last item
-Stack.prototype.pop = function() {
-  // if the stack is empty, return null
-  // (it would also be reasonable to throw an exception)
-  if (!this.items.length) {
-    return null;
-  }
-  return this.items.pop();
+// Remove and return the top item from our stack. If it equals
+// the top item in maxesStack, they must have been pushed in together.
+// So we'll pop it out of maxesStack too.
+MaxStack.prototype.pop = function() {};
+
+// The last item in maxesStack is the max item in our stack.
+MaxStack.prototype.getMax = function() {
+  return this.maxesStack.peek();
 };
 
-// see what the last item is
-Stack.prototype.peek = function() {
-  if (!this.items.length) {
-    return null;
-  }
-  return this.items[this.items.length - 1];
-};
-
-Stack.prototype.getMax = function() {};
-
-module.exports = Stack;
+module.exports = MaxStack;
