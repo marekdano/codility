@@ -9,6 +9,7 @@
  * Your stacks will contain only integers.
  */
 
+let path = require("path");
 let Stack = require(path.join(__dirname, "./shared/Stack"));
 
 function MaxStack() {

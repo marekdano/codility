@@ -49,6 +49,13 @@ let containsCycle = require(path.join(
   "../InterviewCake/23.CycledLinkedList"
 ));
 
+let Stack = require(path.join(__dirname, "../InterviewCake/shared/Stack"));
+
+let MaxStack = require(path.join(
+  __dirname,
+  "../InterviewCake/20.GetMaxFromStack"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -318,5 +325,44 @@ describe("containsCycle function", () => {
     node4.next = node2;
 
     expect(containsCycle(rootNode)).to.equal(true);
+  });
+});
+
+describe("getMax function", () => {
+  it("exists", () => {
+    expect(new MaxStack().getMax).to.be.a("function");
+  });
+
+  it("should max value be 5", () => {
+    const stack = new MaxStack();
+    stack.push(2);
+    stack.push(5);
+    stack.push(3);
+    stack.push(4);
+
+    expect(stack.getMax()).to.equal(5);
+  });
+
+  it("should max value be 6", () => {
+    const stack = new MaxStack();
+    stack.push(2);
+    stack.push(5);
+    stack.push(3);
+    stack.push(4);
+    stack.push(6);
+
+    expect(stack.getMax()).to.equal(6);
+  });
+
+  it("should max value be 5 after popping the max value of 6", () => {
+    const stack = new MaxStack();
+    stack.push(2);
+    stack.push(5);
+    stack.push(3);
+    stack.push(4);
+    stack.push(6);
+    stack.pop();
+
+    expect(stack.getMax()).to.equal(5);
   });
 });
