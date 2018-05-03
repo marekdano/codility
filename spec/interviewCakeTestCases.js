@@ -56,6 +56,11 @@ let MaxStack = require(path.join(
   "../InterviewCake/20.GetMaxFromStack"
 ));
 
+const QueueWithTwoStacks = require(path.join(
+  __dirname,
+  "../InterviewCake/19.QueueWithTwoStacks"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -364,5 +369,36 @@ describe("getMax function", () => {
     stack.pop();
 
     expect(stack.getMax()).to.equal(5);
+  });
+});
+
+describe("QueueWithTwoStacks", () => {
+  it("should exist function enqueue", () => {
+    expect(new QueueWithTwoStacks().enqueue).to.be.a("function");
+  });
+
+  it("should exist function dequeue", () => {
+    expect(new QueueWithTwoStacks().enqueue).to.be.a("function");
+  });
+
+  it("should return 'a'", () => {
+    let queue = new QueueWithTwoStacks();
+    queue.enqueue("a");
+    queue.enqueue("b");
+    queue.enqueue("c");
+    expect(queue.dequeue()).to.equal("a");
+  });
+
+  it("should empty whole queue", () => {
+    let queue = new QueueWithTwoStacks();
+    queue.enqueue("a");
+    queue.enqueue("b");
+    queue.enqueue("c");
+    queue.dequeue();
+    queue.enqueue("d");
+    expect(queue.dequeue()).to.equal("b");
+    expect(queue.dequeue()).to.equal("c");
+    expect(queue.dequeue()).to.equal("d");
+    expect(queue.dequeue()).to.equal(undefined);
   });
 });
