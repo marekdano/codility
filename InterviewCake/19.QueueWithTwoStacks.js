@@ -8,6 +8,15 @@
  * Assume you already have a stack implementation and it gives O(1)O(1) time push and pop.
  */
 
-function QueueWithTwoStacks() {}
+function QueueWithTwoStacks() {
+  this.inStack = [];
+  this.outStack = [];
+}
+
+QueueWithTwoStacks.prototype.enqueue = function(item) {
+  this.inStack.push(item);
+};
+
+QueueWithTwoStacks.prototype.dequeue = function() {};
 
 module.exports = QueueWithTwoStacks;
