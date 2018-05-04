@@ -17,6 +17,21 @@ QueueWithTwoStacks.prototype.enqueue = function(item) {
   this.inStack.push(item);
 };
 
-QueueWithTwoStacks.prototype.dequeue = function() {};
+QueueWithTwoStacks.prototype.dequeue = function() {
+  if (!this.outStack.length) {
+    // move items from inStack to outStack, reversing order
+    while (this.inStack.length) {
+      const item = this.inStack.pop();
+      this.outStack.push(item);
+    }
+  }
+
+  // if outStack is still empty, raise an error
+  if (!this.outStack.length) {
+    return undefined;
+  }
+
+  return this.outStack.pop();
+};
 
 module.exports = QueueWithTwoStacks;
