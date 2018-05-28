@@ -6,6 +6,8 @@
  * the depths of any two leaf nodes ↴ is no greater than one.
  */
 
-let isBalanced = (treeRoot) => {}
+let isBalanced = (treeRoot) => {
+
+}
 
 module.exports = isBalanced;

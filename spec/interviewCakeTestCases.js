@@ -61,6 +61,11 @@ const QueueWithTwoStacks = require(path.join(
   "../InterviewCake/19.QueueWithTwoStacks"
 ));
 
+const isBalanced = require(path.join(
+  __dirname,
+  "../InterviewCake/BalanceBST"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -401,4 +406,42 @@ describe("QueueWithTwoStacks", () => {
     expect(queue.dequeue()).to.equal("d");
     expect(queue.dequeue()).to.equal(undefined);
   });
+});
+
+describe("isBalanced", () => {
+  it("exists", () => {
+    expect(isBalanced).to.be.a("function");
+  });
+
+  it("should return TRUE when BST is balanced", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const twelve = eight.insertRight(12);
+    const ten = twelve.insertLeft(10);
+    const nine = ten.insertLeft(9);
+    const eleven = ten.insertRight(11);
+
+    expect(isBalanced(rootNode)).to.equal(true);
+  })
+
+  it("should return FALSE when BST is not balanced", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const twelve = eight.insertRight(12);
+    const ten = twelve.insertLeft(10);
+    const nine = ten.insertLeft(9);
+    const eleven = ten.insertRight(11);
+    const thirteen = eleven.insertRight(13);
+
+    expect(isBalanced(rootNode)).to.equal(false);
+  })
+
 });
