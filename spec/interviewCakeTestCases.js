@@ -418,12 +418,11 @@ describe("isBalanced", () => {
     const three = rootNode.insertLeft(3);
     const eight = rootNode.insertRight(8);
     const one = three.insertLeft(1);
+    const zero = one.insertLeft(0);
     const four = three.insertRight(4);
     const seven = eight.insertLeft(7);
     const twelve = eight.insertRight(12);
     const ten = twelve.insertLeft(10);
-    const nine = ten.insertLeft(9);
-    const eleven = ten.insertRight(11);
 
     expect(isBalanced(rootNode)).to.equal(true);
   })
