@@ -61,9 +61,11 @@ const QueueWithTwoStacks = require(path.join(
   "../InterviewCake/19.QueueWithTwoStacks"
 ));
 
-const isBalanced = require(path.join(
+const isBalanced = require(path.join(__dirname, "../InterviewCake/BalanceBST"));
+
+const isBinarySearchTree = require(path.join(
   __dirname,
-  "../InterviewCake/BalanceBST"
+  "../InterviewCake/BST"
 ));
 
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
@@ -425,7 +427,7 @@ describe("isBalanced", () => {
     const ten = twelve.insertLeft(10);
 
     expect(isBalanced(rootNode)).to.equal(true);
-  })
+  });
 
   it("should return FALSE when BST is not balanced", () => {
     const rootNode = new BinaryTreeNode(5);
@@ -441,6 +443,11 @@ describe("isBalanced", () => {
     const thirteen = eleven.insertRight(13);
 
     expect(isBalanced(rootNode)).to.equal(false);
-  })
+  });
+});
 
+describe("isBinarySearchTree", () => {
+  it("exists", () => {
+    expect(isBinarySearchTree).to.be.a("function");
+  });
 });
