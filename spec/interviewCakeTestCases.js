@@ -450,4 +450,32 @@ describe("isBinarySearchTree", () => {
   it("exists", () => {
     expect(isBinarySearchTree).to.be.a("function");
   });
+
+  it("should return TRUE when is binary search tree", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const zero = one.insertLeft(0);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const twelve = eight.insertRight(12);
+    const ten = twelve.insertLeft(10);
+
+    expect(isBinarySearchTree(rootNode)).to.equal(true);
+  });
+
+  it("should return FALSE when is not binary search tree", () => {
+    const rootNode = new BinaryTreeNode(5);
+    const three = rootNode.insertLeft(3);
+    const eight = rootNode.insertRight(8);
+    const one = three.insertLeft(1);
+    const zero = one.insertLeft(11);
+    const four = three.insertRight(4);
+    const seven = eight.insertLeft(7);
+    const twelve = eight.insertRight(12);
+    const ten = twelve.insertLeft(10);
+
+    expect(isBinarySearchTree(rootNode)).to.equal(false);
+  });
 });
