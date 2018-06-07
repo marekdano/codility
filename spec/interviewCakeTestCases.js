@@ -68,6 +68,8 @@ const isBinarySearchTree = require(path.join(
   "../InterviewCake/BST"
 ));
 
+const rand7 = require(path.join(__dirname, "../InterviewCake/Rand7"));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -477,5 +479,15 @@ describe("isBinarySearchTree", () => {
     const ten = twelve.insertLeft(10);
 
     expect(isBinarySearchTree(rootNode)).to.equal(false);
+  });
+});
+
+describe("Rand7 function", () => {
+  it("exists", () => {
+    expect(rand7).to.be.a("function");
+  });
+
+  it("should return number between 1 and 7", () => {
+    expect([1, 2, 3, 4, 5, 6, 7]).to.include(rand7());
   });
 });

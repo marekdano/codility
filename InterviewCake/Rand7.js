@@ -6,6 +6,10 @@
  * rand5() must also return each integer with equal probability.
  */
 
-let rand7 = () => {};
+const rand7 = () => {};
+
+const rand5 = () => {
+  return Math.ceil(Math.random() * 5);
+};
 
 module.exports = rand7;
