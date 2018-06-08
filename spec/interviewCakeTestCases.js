@@ -68,7 +68,7 @@ const isBinarySearchTree = require(path.join(
   "../InterviewCake/BST"
 ));
 
-const rand7 = require(path.join(__dirname, "../InterviewCake/Rand7"));
+const rand5 = require(path.join(__dirname, "../InterviewCake/Rand5"));
 
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
@@ -482,12 +482,12 @@ describe("isBinarySearchTree", () => {
   });
 });
 
-describe("Rand7 function", () => {
+describe("Rand5 function", () => {
   it("exists", () => {
-    expect(rand7).to.be.a("function");
+    expect(rand5).to.be.a("function");
   });
 
-  it("should return number between 1 and 7", () => {
-    expect([1, 2, 3, 4, 5, 6, 7]).to.include(rand7());
+  it("should return number between 1 and 5", () => {
+    expect([1, 2, 3, 4, 5]).to.include(rand5());
   });
 });
