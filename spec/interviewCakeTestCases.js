@@ -72,6 +72,11 @@ const rand5 = require(path.join(__dirname, "../InterviewCake/Rand5"));
 
 const rand7 = require(path.join(__dirname, "../InterviewCake/Rand7"));
 
+const palindrome = require(path.join(
+  __dirname,
+  "../InterviewCake/PermutationPalindrome"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -503,3 +508,27 @@ describe("Rand7 function", () => {
     expect([1, 2, 3, 4, 5, 6, 7]).to.include(rand7());
   });
 });
+
+describe("palindrome function", () => {
+  it("exists", () => {
+    expect(palindrome).to.be.a("function");
+  });
+
+  it("should return true when palindrome is 'civic'", () => {
+    expect(palindrome("civic")).to.true;
+  });
+
+  it("should return true when palindrome is 'ivicc'", () => {
+    expect(palindrome("ivicc")).to.true;
+  });
+
+  it("should return false when palindrome is 'civil'", () => {
+    expect(palindrome("civil")).to.false;
+  });
+
+  it("should return false when palindrome is 'livci'", () => {
+    expect(palindrome("livci")).to.false;
+  });
+});
+
+
