@@ -17,6 +17,23 @@
  * Jumping in with a flawed understanding of the problem doesn't look good in an interview.
  */
 
-const palindrome = (str) => {};
+const palindrome = (str) => {
+	// track characters we've seen an odd number of times
+	const unpairedCharacters = new Set();
+
+	for (let i = 0; i < str.length; i++) {
+			const char = str[i];
+
+			if (unpairedCharacters.has(char)) {
+					unpairedCharacters.delete(char);
+			} else {
+					unpairedCharacters.add(char);
+			}
+	}
+
+	// the string has a palindrome permutation if it
+	// has one or zero characters without a pair
+	return unpairedCharacters.size <= 1;
+};
 
 module.exports = palindrome;
