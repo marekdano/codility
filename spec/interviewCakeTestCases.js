@@ -77,6 +77,11 @@ const palindrome = require(path.join(
   "../InterviewCake/PermutationPalindrome"
 ));
 
+const getClosingParenthesis = require(path.join(
+  __dirname,
+  "../InterviewCake/ParenthesisMatching"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -528,6 +533,30 @@ describe("palindrome function", () => {
 
   it("should return false when palindrome is 'livci'", () => {
     expect(palindrome("livci")).to.false;
+  });
+});
+
+describe("getClosingParenthesis function", () => {
+  it("exists", () => {
+    expect(getClosingParenthesis).to.be.a("function");
+  });
+
+  it("should return index of 79, place of the closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) 
+                 too much (like this (and this))) they get confusing.`;
+    expect(getClosingParenthesis(str, 10)).to.equal(79);
+  });
+
+  it("should return index of 79, place of the closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) 
+                 too much (like this (and this))) they get confusing.`;
+    expect(getClosingParenthesis(str, 28)).to.equal(46);
+  });
+
+  it("should return index of 79, place of the closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) 
+                 too much (like this (and this))) they get confusing.`;
+    expect(getClosingParenthesis(str, 57)).to.equal(78);
   });
 });
 
