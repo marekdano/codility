@@ -13,8 +13,27 @@
  * the output should be 79 (position of the last parenthesis).
  */
 
-const getClosingParenthesis = (str, openingParenIndex) => {
+// Complexity 
+// O(n) time, where n is the number of chars in the string. O(1) space.
 
+const getClosingParenthesis = (str, openingParenIndex) => {
+	let openNestedParen = 0;
+
+	for (let position = openingParenIndex + 1; position < str.length; position++) {
+		const char = str[position];
+
+		if (char === '(') {
+			openNestedParen += 1;
+		} else if (char === ')') {
+			if (openNestedParen === 0) {
+				return position
+			} else {
+				openNestedParen -= 1;
+			}
+		}
+	}
+
+	throw new Error('No closing parenthesis :(');
 };
 
 module.exports = getClosingParenthesis;
