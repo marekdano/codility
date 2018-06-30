@@ -542,21 +542,25 @@ describe("getClosingParenthesis function", () => {
   });
 
   it("should return index of 79, place of the closing parenthesis", () => {
-    const str = `Sometimes (when I nest them (my parentheticals) 
-                 too much (like this (and this))) they get confusing.`;
+    const str = `Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing.`;
     expect(getClosingParenthesis(str, 10)).to.equal(79);
   });
 
-  it("should return index of 79, place of the closing parenthesis", () => {
-    const str = `Sometimes (when I nest them (my parentheticals) 
-                 too much (like this (and this))) they get confusing.`;
+  it("should return index of 46, place of the closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing.`;
     expect(getClosingParenthesis(str, 28)).to.equal(46);
   });
 
-  it("should return index of 79, place of the closing parenthesis", () => {
-    const str = `Sometimes (when I nest them (my parentheticals) 
-                 too much (like this (and this))) they get confusing.`;
+  it("should return index of 78, place of the closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing.`;
     expect(getClosingParenthesis(str, 57)).to.equal(78);
+  });
+
+  it("should throw error when there is no closing parenthesis", () => {
+    const str = `Sometimes (when I nest them (my parentheticals) too much (like this (and this)) they get confusing.`;
+    expect(getClosingParenthesis.bind(getClosingParenthesis, str, 10)).to.throw('No closing parenthesis :(');
+    // or 
+    // expect(() => getClosingParenthesis(str, 10)).to.throw('No closing parenthesis :(');
   });
 });
 
