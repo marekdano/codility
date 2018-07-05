@@ -82,6 +82,11 @@ const getClosingParenthesis = require(path.join(
   "../InterviewCake/ParenthesisMatching"
 ));
 
+const getPermutations = require(path.join(
+  __dirname,
+  "../InterviewCake/StringPermutationsRecur"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 describe("getMaxProfit function", () => {
@@ -561,6 +566,22 @@ describe("getClosingParenthesis function", () => {
     expect(getClosingParenthesis.bind(getClosingParenthesis, str, 10)).to.throw('No closing parenthesis :(');
     // or 
     // expect(() => getClosingParenthesis(str, 10)).to.throw('No closing parenthesis :(');
+  });
+});
+
+describe("getPermutations function", () => {
+  it("exists", () => {
+    expect(getPermutations).to.be.a("function");
+  });
+
+  it("should return array of permutations when string is defined", () => {
+    const result = ['cat', 'cta', 'atc', 'act', 'tac', 'tca'];
+    expect(getPermutations('cat').to.equal(result));
+  });
+
+  it("should return empty array  when string is empty / not defined", () => {
+    const result = [];
+    expect(getPermutations('').to.equal(result));
   });
 });
 
