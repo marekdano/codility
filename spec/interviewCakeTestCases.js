@@ -575,13 +575,13 @@ describe("getPermutations function", () => {
   });
 
   it("should return array of permutations when string is defined", () => {
-    const result = ['cat', 'cta', 'atc', 'act', 'tac', 'tca'];
-    expect(getPermutations('cat').to.equal(result));
+    const result = new Set(['cat', 'act', 'atc', 'tca', 'cta', 'tac']);
+    expect(getPermutations('cat')).to.eql(result);
   });
 
   it("should return empty array  when string is empty / not defined", () => {
-    const result = [];
-    expect(getPermutations('').to.equal(result));
+    const result = new Set();
+    expect(getPermutations('')).to.eql(result);
   });
 });
 
