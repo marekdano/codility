@@ -34,6 +34,96 @@
  *  ['Jayden', 'Amelia', 'Adam']
  */
 
-const getShortPath = () => {};
+// Complexity time 0(N + M), space O(N)
 
-module.exports = getShortPath;
+
+// Assume we have an efficient queue implementation, Queue()
+// with enqueue and dequeue methods and a size property
+
+const reconstructPath = (howWeReachedNodes, startNode, endNode) => {
+
+	let reversedShortestPath = [];
+
+	// start from the end of the path and work backwards
+	const currentNode = endNode;
+
+	while (currentNode !== null) {
+			reversedShortestPath.push(currentNode);
+			currentNode = howWeReachedNodes[currentNode];
+	}
+
+	// reverse our path to get the right order
+	return reversedShortestPath.reverse();  // no longer reversed
+}
+
+function bfsGetPath(graph, startNode, endNode) {
+
+	if (!graph.hasOwnProperty(startNode)) {
+			throw new Error('Start node not in graph!');
+	}
+	if (!graph.hasOwnProperty(endNode)) {
+			throw new Error('End node not in graph!');
+	}
+
+	const nodesToVisit = new Queue();
+	nodesToVisit.enqueue(startNode);
+
+	// keep track of how we got to each node
+	// we'll use this to reconstruct the shortest path at the end
+	// we'll ALSO use this to keep track of which nodes we've
+	// already visited
+	const howWeReachedNodes = {};
+	howWeReachedNodes[startNode] = null;
+
+	while (nodesToVisit.size > 0) {
+			const currentNode = nodesToVisit.dequeue();
+
+			// stop when we reach the end node
+			if (currentNode === endNode) {
+					return reconstructPath(howWeReachedNodes, startNode, endNode);
+			}
+
+			graph[currentNode].forEach(function(neighbor) {
+					if (!howWeReachedNodes.hasOwnProperty(neighbor)) {
+							nodesToVisit.enqueue(neighbor);
+							howWeReachedNodes[neighbor] = currentNode;
+					}
+			});
+	}
+
+	// if we get here, then we never found the end node
+	// so there's NO path from startNode to endNode
+	return null;
+}
+
+module.exports = reconstructPath;
+
+// BFS algorithm
+// // Assume we have an efficient queue implementation, Queue()
+// // with enqueue and dequeue methods and a size property
+// function bfs(graph, startNode, endNode) {
+
+// 	var nodesToVisit = new Queue();
+// 	nodesToVisit.enqueue(startNode);
+
+// 	// keep track of what nodes we've already seen
+// 	// so we don't process them twice
+// 	var nodesAlreadySeen = new Set([startNode]);
+
+// 	while (nodesToVisit.size > 0) {
+// 			var currentNode = nodesToVisit.dequeue();
+
+// 			// stop when we reach the end node
+// 			if (currentNode === endNode) {
+// 					// found it!
+// 					break;
+// 			}
+
+// 			graph[currentNode].forEach(function(neighbor) {
+// 					if (!nodesAlreadySeen.has(neighbor)) {
+// 							nodesAlreadySeen.add(neighbor);
+// 							nodesToVisit.enqueue(neighbor);
+// 					}
+// 			});
+// 	}
+// }
