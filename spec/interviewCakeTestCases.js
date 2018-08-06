@@ -89,6 +89,8 @@ const getPermutations = require(path.join(
 
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
+const getTheShortestPath = require(path.join(__dirname, "../InterviewCake/GetTheShortestPath"));
+
 describe("getMaxProfit function", () => {
   it("exists", () => {
     expect(getMaxProfit).to.be.a("function");
@@ -582,6 +584,28 @@ describe("getPermutations function", () => {
   it("should return empty array  when string is empty / not defined", () => {
     const result = new Set();
     expect(getPermutations('')).to.eql(result);
+  });
+});
+
+describe("getTheShortestPath function", () => {
+  it("exists", () => {
+    expect(getTheShortestPath).to.be.a("function");
+  });
+
+  it("should return the shortest path", () => {
+    const network = {
+      'Min': ['William', 'Jayden', 'Omar'],
+      'William': ['Min', 'Noam'],
+      'Jayden': ['Min', 'Amelia', 'Ren', 'Noam'],
+      'Ren': ['Jayden', 'Omar'],
+      'Amelia': ['Jayden', 'Adam', 'Miguel'],
+      'Adam': ['Amelia', 'Miguel'],
+      'Miguel': ['Amelia', 'Adam'],
+      'Noam': ['Jayden', 'William'],
+      'Omar': ['Ren', 'Min'],
+    };
+    const result = ['Jayden', 'Amelia', 'Adam'];
+    expect(getTheShortestPath(network, 'Jayden', 'Adam')).to.eql(result);
   });
 });
 
