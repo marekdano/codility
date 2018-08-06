@@ -7,7 +7,7 @@ Queue.prototype.enqueue = function(record) {
 }
 
 Queue.prototype.dequeue = function() {
-	this.data.pop();
+	return this.data.pop();
 }
 
 Queue.prototype.first = function() {

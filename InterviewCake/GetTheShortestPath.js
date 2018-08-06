@@ -36,16 +36,18 @@
 
 // Complexity time 0(N + M), space O(N)
 
+const path = require("path");
+const Queue = require(path.join(__dirname, "./shared/Queue"));
 
 // Assume we have an efficient queue implementation, Queue()
 // with enqueue and dequeue methods and a size property
 
-const reconstructPath = (howWeReachedNodes, startNode, endNode) => {
+function reconstructPath(howWeReachedNodes, startNode, endNode) {
 
 	let reversedShortestPath = [];
 
 	// start from the end of the path and work backwards
-	const currentNode = endNode;
+	let currentNode = endNode;
 
 	while (currentNode !== null) {
 			reversedShortestPath.push(currentNode);
@@ -65,19 +67,19 @@ function bfsGetPath(graph, startNode, endNode) {
 			throw new Error('End node not in graph!');
 	}
 
-	const nodesToVisit = new Queue();
+	let nodesToVisit = new Queue();
 	nodesToVisit.enqueue(startNode);
 
 	// keep track of how we got to each node
 	// we'll use this to reconstruct the shortest path at the end
 	// we'll ALSO use this to keep track of which nodes we've
 	// already visited
-	const howWeReachedNodes = {};
+	let howWeReachedNodes = {};
 	howWeReachedNodes[startNode] = null;
 
-	while (nodesToVisit.size > 0) {
+	while (nodesToVisit.size() > 0) {
 			const currentNode = nodesToVisit.dequeue();
-
+		
 			// stop when we reach the end node
 			if (currentNode === endNode) {
 					return reconstructPath(howWeReachedNodes, startNode, endNode);
@@ -96,7 +98,7 @@ function bfsGetPath(graph, startNode, endNode) {
 	return null;
 }
 
-module.exports = reconstructPath;
+module.exports = bfsGetPath;
 
 // BFS algorithm
 // // Assume we have an efficient queue implementation, Queue()
