@@ -87,6 +87,11 @@ const getPermutations = require(path.join(
   "../InterviewCake/StringPermutationsRecur"
 ));
 
+const canTwoMoviesFillFlight = require(path.join(
+  __dirname,
+  "../InterviewCake/CanTwoMoviesFillFlight"
+));
+
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
 const getTheShortestPath = require(path.join(__dirname, "../InterviewCake/GetTheShortestPath"));
@@ -606,6 +611,24 @@ describe("getTheShortestPath function", () => {
     };
     const result = ['Jayden', 'Amelia', 'Adam'];
     expect(getTheShortestPath(network, 'Jayden', 'Adam')).to.eql(result);
+  });
+});
+
+describe("canTwoMoviesFillFlight", () => {
+  it("exists", () => {
+    expect(canTwoMoviesFillFlight).to.be.a("function");
+  });
+
+  it("should return false when two movies lengths are longer then flight length", () => {
+    const movieLengths = [3.4, 2.6, 4.9];
+    const flightLength = 5.5;
+    expect(canTwoMoviesFillFlight(movieLengths, flightLength)).to.false;
+  });
+
+  it("should return true when two movies lengths equal to flight length", () => {
+    const movieLengths = [4.7, 2.3, 3.2, 1.8, 3.1];
+    const flightLength = 5.4;
+    expect(canTwoMoviesFillFlight(movieLengths, flightLength)).to.false;
   });
 });
 
