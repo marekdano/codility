@@ -15,6 +15,29 @@
  * 		Optimize for runtime over memory
  */
 
-const canTwoMoviesFillFlight = () => {};
+// COMPLEXITY
+// O(n) time, and O(n)O(n) space.
+
+const canTwoMoviesFillFlight = (movieLengths, flightLength) => {
+	// Movie lengths we've seen so far
+  const movieLengthsSeen = new Set();
+
+  for (let i = 0; i < movieLengths.length; i++) {
+    const firstMovieLength = movieLengths[i];
+
+		const matchingSecondMovieLength = flightLength - firstMovieLength;
+		
+		// users won't watch the same movie twice because we check movie_lengths_seen 
+		// for matching_second_movie_length before we've put first_movie_length in it!
+    if (movieLengthsSeen.has(matchingSecondMovieLength)) {
+      return true;
+    }
+
+    movieLengthsSeen.add(firstMovieLength);
+  }
+
+  // We never found a match, so return false
+  return false;
+};
 
 module.exports = canTwoMoviesFillFlight;
