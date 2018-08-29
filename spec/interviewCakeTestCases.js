@@ -94,7 +94,16 @@ const canTwoMoviesFillFlight = require(path.join(
 
 //import { LinkedListNode, kthToLastNode } from "../InterviewCake/25.Find_k-th_inLinkedList";
 
-const getTheShortestPath = require(path.join(__dirname, "../InterviewCake/GetTheShortestPath"));
+const getTheShortestPath = require(path.join(
+  __dirname, 
+  "../InterviewCake/GetTheShortestPath"
+));
+
+const reverse = require(path.join(
+  __dirname,
+  "../InterviewCake/ReverseLinkedList"
+));
+
 
 describe("getMaxProfit function", () => {
   it("exists", () => {
@@ -632,4 +641,30 @@ describe("canTwoMoviesFillFlight", () => {
   });
 });
 
+describe("reverse function", () => {
+  it("exists", () => {
+    expect(reverse).to.be.a("function");
+  });
 
+  it("should reverse linked list and return tail as head of the reversed list", () => {
+    let a = new LinkedListNode("Angel Food");
+    let b = new LinkedListNode("Bundt");
+    let c = new LinkedListNode("Cheese");
+    let d = new LinkedListNode("Devil's Food");
+    let e = new LinkedListNode("Eccles");
+
+    a.next = b;
+    b.next = c;
+    c.next = d;
+    d.next = e;
+
+    expect(reverse(a)).to.equal(e);
+  });
+
+  it("should return the same node of linked list when linked list has one node only", () => {
+    let a = new LinkedListNode("Angel Food");
+    a.next = null;
+
+    expect(reverse(a)).to.equal(a);
+  });
+});
