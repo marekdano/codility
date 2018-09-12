@@ -104,6 +104,11 @@ const reverse = require(path.join(
   "../InterviewCake/ReverseLinkedList"
 ));
 
+const WordCloudData = require(path.join(
+  __dirname,
+  "../InterviewCake/WordCloud"
+));
+
 
 describe("getMaxProfit function", () => {
   it("exists", () => {
@@ -666,5 +671,41 @@ describe("reverse function", () => {
     a.next = null;
 
     expect(reverse(a)).to.equal(a);
+  });
+});
+
+describe("word cloud data", () => {
+  it("exists", () => {
+    expect(WordCloudData).to.be.a("function");
+  });
+
+  it("should populate word cloud when sentence contains extra characters", () => {
+    const str = `
+      We came, we saw, we conquered...then we ate Bill's (Mille-Feuille) cake. 
+      The bill came to five dollars.
+    `;
+
+    const wordCloud = new WordCloudData(str);
+    expect(wordCloud.getWordsToCounts().get('we')).to.equal(4);
+  });
+
+  it("should populate word cloud when sentence contains uppercase letters", () => {
+    const str = `
+      We came, we saw, we ate cake.
+      Friends, Romans, countrymen! Let us eat cake.
+      New tourists in New York often wait in long lines for cronuts.
+    `;
+    const wordCloud = new WordCloudData(str);
+    expect(wordCloud.getWordsToCounts().get('New')).to.equal(2);
+  });
+
+  it("should populate word cloud when sentence constains the same words with different meaning", () => {
+    const str = `
+      Cliff finished his cake and paid the bill.
+      Bill finished his cake at the edge of the cliff.
+    `;
+    const wordCloud = new WordCloudData(str);
+    expect(wordCloud.getWordsToCounts().get('cliff')).to.equal(2);
+    expect(wordCloud.getWordsToCounts().get('bill')).to.equal(2);
   });
 });
