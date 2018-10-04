@@ -19,7 +19,17 @@
  * Orders aren't always fulfilled in the order they were received, 
  * and some deliveries get cancelled before takeoff.
  */
+// Complexity
+// O(n) time, and O(1) space
 
-const findUniqueDeliveryId = (deliveryIds) => {};
+const findUniqueDeliveryId = (deliveryIds) => {
+	var uniqueDeliveryId = 0;
+
+	deliveryIds.forEach((deliveryId) => {
+			uniqueDeliveryId ^= deliveryId;
+	});
+
+	return uniqueDeliveryId;
+};
 
 module.exports = findUniqueDeliveryId;
