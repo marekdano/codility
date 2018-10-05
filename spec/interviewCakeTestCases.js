@@ -109,6 +109,11 @@ const WordCloudData = require(path.join(
   "../InterviewCake/WordCloud"
 ));
 
+const findUniqueDeliveryId = require(path.join(
+  __dirname,
+  "../InterviewCake/FindUniqueDeliveryId"
+));
+
 
 describe("getMaxProfit function", () => {
   it("exists", () => {
@@ -708,4 +713,15 @@ describe("word cloud data", () => {
     expect(wordCloud.getWordsToCounts().get('cliff')).to.equal(2);
     expect(wordCloud.getWordsToCounts().get('bill')).to.equal(2);
   });
+});
+
+describe("find unique delivery Id function", () => {
+  it("exists", () => {
+    expect(findUniqueDeliveryId).to.be.a("function");
+  });
+
+  it("return unique delivery Id", () => {
+    const ids = [2,3,4,2,1,6,1,3,6];
+    expect(findUniqueDeliveryId(ids)).to.equal(4);
+  })
 });
