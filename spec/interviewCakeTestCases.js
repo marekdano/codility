@@ -114,6 +114,10 @@ const findUniqueDeliveryId = require(path.join(
   "../InterviewCake/FindUniqueDeliveryId"
 ));
 
+const deleteNode = require(path.join(
+  __dirname,
+  "../InterviewCake/DeleteNodeFromLinkedList"
+));
 
 describe("getMaxProfit function", () => {
   it("exists", () => {
@@ -725,3 +729,36 @@ describe("find unique delivery Id function", () => {
     expect(findUniqueDeliveryId(ids)).to.equal(4);
   })
 });
+
+describe("deleteNode", () => {
+  it("should exist", () => {
+    expect(deleteNode).to.be.a("function");
+  });
+
+  it("should delete the node when it is in the linked list", () => {
+    const a = new LinkedListNode('A');
+    const b = new LinkedListNode('B');
+    const c = new LinkedListNode('C');
+
+    a.next = b;
+	  b.next = c;
+
+    deleteNode(b);
+    expect(a.next.value).to.equal('C');
+  });
+
+  it("should NOT delete the node when it's NOT in the linked list", () => {
+    const a = new LinkedListNode('A');
+    const b = new LinkedListNode('B');
+    const c = new LinkedListNode('C');
+    const d = new LinkedListNode('D');
+
+    a.next = b;
+	  b.next = c;
+
+    deleteNode(d);
+    expect(a.next.value).to.equal('B');
+    expect(b.next.value).to.equal('C');
+    expect(c.next).to.equal(null);
+  });
+})
