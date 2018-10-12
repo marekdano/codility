@@ -747,7 +747,7 @@ describe("deleteNode", () => {
     expect(a.next.value).to.equal('C');
   });
 
-  it("should NOT delete the node when it's NOT in the linked list", () => {
+  it("should throw error when trying to delete the last node in the linked list", () => {
     const a = new LinkedListNode('A');
     const b = new LinkedListNode('B');
     const c = new LinkedListNode('C');
@@ -756,9 +756,6 @@ describe("deleteNode", () => {
     a.next = b;
 	  b.next = c;
 
-    deleteNode(d);
-    expect(a.next.value).to.equal('B');
-    expect(b.next.value).to.equal('C');
-    expect(c.next).to.equal(null);
+    expect(() => deleteNode(c)).to.throw("Can't delete the last node with this technique!");
   });
 })
