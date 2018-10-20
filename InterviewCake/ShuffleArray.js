@@ -8,6 +8,11 @@
  * for getting a random integer that is >= floor and <= ceiling.
  */
 
+const getRandom = (floor, ceiling) => {
+	return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
+}
+
+
 const shuffle = (array) => {};
 
 module.exports = shuffle;
