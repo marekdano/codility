@@ -16,6 +16,6 @@
  * // log [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
  */
 
-const mergeArrays = (myArray, alicesArray) {};
+const mergeArrays = (myArray, alicesArray) => { };
 
 module.exports = mergeArrays;

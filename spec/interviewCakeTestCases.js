@@ -119,6 +119,11 @@ const deleteNode = require(path.join(
   "../InterviewCake/DeleteNodeFromLinkedList"
 ));
 
+const mergeArrays = require(path.join(
+  __dirname,
+  "../InterviewCake/MergeArrays"
+));
+
 describe("getMaxProfit function", () => {
   it("exists", () => {
     expect(getMaxProfit).to.be.a("function");
@@ -759,3 +764,17 @@ describe("deleteNode", () => {
     expect(() => deleteNode(c)).to.throw("Can't delete the last node with this technique!");
   });
 })
+
+describe("mergeArrays", () => {
+  it("should exist", () => {
+    expect(mergeArrays).to.be.a("function");
+  });
+
+  it("should merge two sorted arrays to one sorted array", () => {
+    const myArray = [3, 4, 6, 10, 11, 15];
+    const alicesArray = [1, 5, 8, 12, 14, 19];
+    const result = [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19];
+
+    expect(mergeArrays(myArray, alicesArray)).to.equal(result); 
+  });
+});
