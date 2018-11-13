@@ -775,6 +775,6 @@ describe("mergeArrays", () => {
     const alicesArray = [1, 5, 8, 12, 14, 19];
     const result = [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19];
 
-    expect(mergeArrays(myArray, alicesArray)).to.equal(result); 
+    expect(mergeArrays(myArray, alicesArray)).to.eql(result); 
   });
 });
