@@ -23,6 +23,7 @@ let dominator = require(path.join(__dirname, '../8.Leader/dominator'));
 let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/CountFactors'));
 let checkSingleSwap = require(path.join(__dirname, '../Extra/CheckSingleSwap'));
 let wholeSquaresInInterval = require(path.join(__dirname, '../Extra/WholeSquaresInInterval'));
+let singleNumber = require(path.join(__dirname, '../Extra/SingleNumInArrayOfDoubles')); 
 
 //let interviewCakesTestCases = require(path.join(__dirname, './interviewCakesTestCases'));
 
@@ -371,3 +372,21 @@ describe('wholeSquaresInInterval function', () => {
     expect(wholeSquaresInInterval(-2147483648, 2147483648)).to.equal(46339);
   });
 });
+
+describe('singleNumber function', () => {
+  it('exists', () => {
+    expect(singleNumber).to.be.a('function');
+  });
+
+  it('singleNumber([2,1,2])', () => {
+    expect(singleNumber([2,1,2])).to.equal(1);
+  });
+
+  it('singleNumber([2,1,2,1])', () => {
+    expect(singleNumber([2,1,2,1])).to.equal(0);
+  });
+
+  it('singleNumber([2,1,2,1,4])', () => {
+    expect(singleNumber([2,1,2,1,4])).to.equal(4);
+  });
+})
