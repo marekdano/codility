@@ -10,6 +10,6 @@
 // Time complexity O(n)
 // Space complexity 0(1)
 
-let singleNumber = (arr) => {};
+let singleNumber = (arr) => arr.reduce((result, current) => result ^ current);
 
 module.exports = singleNumber;
