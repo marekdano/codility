@@ -8,7 +8,9 @@
  * A linked list can be reversed either iteratively or recursively. Try implement both.
  */
 
+
 let reverseList = {
+	// Time complexity O(n) and Space complexity O(1)
 	reverseListIteratively: (head) => {
 		let prev = null;
 		let curr = head;
@@ -20,6 +22,17 @@ let reverseList = {
 		}
 		return prev;
 	},
+
+	// Time complexity O(n) and Space complexity O(n)
+	reverseListRecursively: (head) => {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		let node = reverseList.reverseListRecursively(head.next);
+		head.next.next = head;
+		head.next = null;
+		return node;
+	}
 }
  
 

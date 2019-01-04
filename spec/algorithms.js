@@ -417,5 +417,29 @@ describe('reverseList', () => {
       expect(result.next.next.next.next.value).to.equal(1);
     });
   });
+
+  describe(' - Recursively function', () => {
+    it('exists', () => {
+      expect(reverseList.reverseListRecursively).to.be.a('function');
+    });
+
+    it('should reverse linked list iterativly', () => {
+      let head = new ListNode(1);
+      let b = new ListNode(2);
+      let c = new ListNode(3);
+      let d = new ListNode(4);
+      let e = new ListNode(5);
+
+      head.next = b;
+      b.next = c;
+      c.next = d;
+      d.next = e;
+
+      const result = reverseList.reverseListRecursively(head);
+      expect(result.value).to.equal(5);
+      expect(result.next.next.value).to.equal(3);
+      expect(result.next.next.next.next.value).to.equal(1);
+    });
+  });
 });
 
