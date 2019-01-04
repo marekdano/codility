@@ -8,4 +8,19 @@
  * A linked list can be reversed either iteratively or recursively. Try implement both.
  */
 
-let reverseList = (head) => {};
+let reverseList = {
+	reverseListIteratively: (head) => {
+		let prev = null;
+		let curr = head;
+		while (curr != null) {
+			let nextNode = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = nextNode;
+		}
+		return prev;
+	},
+}
+ 
+
+module.exports = reverseList;

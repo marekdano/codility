@@ -1,6 +1,7 @@
 let path = require('path');
 let expect = require('chai').expect;
 
+let ListNode = require(path.join(__dirname, '../Extra/shared/ListNode'));
 //var algorithms = require(path.join(__dirname, '..', './testSample'));
 let equi = require(path.join(__dirname, '../Demo/Equi'));
 let binaryGap = require(path.join(__dirname, '../1.Iterations/BinaryGap'));
@@ -24,6 +25,7 @@ let countFactors = require(path.join(__dirname, '../10.PrimeAndCompositeNumbers/
 let checkSingleSwap = require(path.join(__dirname, '../Extra/CheckSingleSwap'));
 let wholeSquaresInInterval = require(path.join(__dirname, '../Extra/WholeSquaresInInterval'));
 let singleNumber = require(path.join(__dirname, '../Extra/SingleNumInArrayOfDoubles')); 
+let reverseList = require(path.join(__dirname, '../Extra/ReverseList')); 
 
 //let interviewCakesTestCases = require(path.join(__dirname, './interviewCakesTestCases'));
 
@@ -389,4 +391,31 @@ describe('singleNumber function', () => {
   it('singleNumber([2,1,2,1,4])', () => {
     expect(singleNumber([2,1,2,1,4])).to.equal(4);
   });
-})
+});
+
+describe('reverseList', () => {
+  describe(' - Iteratively function', () => {
+    it('exists', () => {
+      expect(reverseList.reverseListIteratively).to.be.a('function');
+    });
+
+    it('should reverse linked list iterativly', () => {
+      let head = new ListNode(1);
+      let b = new ListNode(2);
+      let c = new ListNode(3);
+      let d = new ListNode(4);
+      let e = new ListNode(5);
+
+      head.next = b;
+      b.next = c;
+      c.next = d;
+      d.next = e;
+
+      const result = reverseList.reverseListIteratively(head);
+      expect(result.value).to.equal(5);
+      expect(result.next.next.value).to.equal(3);
+      expect(result.next.next.next.next.value).to.equal(1);
+    });
+  });
+});
+
