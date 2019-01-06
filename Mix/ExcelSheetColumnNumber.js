@@ -17,6 +17,10 @@
  * 		"ZY" -> 701
  */
 
-const titleToNumber = (title) => {};
+const titleToNumber = (title) => {
+	return title.split('').reverse().reduce((total, curr, index) => {
+		return total + (curr.charCodeAt() - 64) * Math.pow(26, index);
+	}, 0);
+};
 
 module.exports = titleToNumber;

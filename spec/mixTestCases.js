@@ -13,10 +13,10 @@ describe('titleToNumber function', () => {
 	});
 
 	it('should return 28 from title of "AB"', () => {
-		expect(titleToNumber('A')).to.equal(28);
+		expect(titleToNumber('AB')).to.equal(28);
 	});
 
 	it('should return 701 from title of "ZY"', () => {
-		expect(titleToNumber('A')).to.equal(701);
+		expect(titleToNumber('ZY')).to.equal(701);
 	});
 });
