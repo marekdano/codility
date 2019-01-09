@@ -34,4 +34,8 @@ describe('firstUniqChar function', () => {
 	it('should return 2 from string of "loveleetcode"', () => {
 		expect(firstUniqChar('loveleetcode')).to.equal(2);
 	});
+
+	it('should return -1 from string of "tratra"', () => {
+		expect(firstUniqChar('tratra')).to.equal(-1);
+	});
 });
