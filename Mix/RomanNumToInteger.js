@@ -31,8 +31,12 @@
  * 		"III" 		returns 3
  * 		"IV" 			returns 4
  * 		"IX"			returns 9
- * 		"LVIII" 	returns 58 	=> L = 50, V= 5, III = 3.
+ * 		"LVIII" 	returns 58 	=> L = 50, V = 5, III = 3.
  * 		"MCMXCIV" returns 1994 	=> M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInteger = (roman) => {};
+const romanToInteger = (roman) => {
+	
+};
+
+module.exports = romanToInteger;
