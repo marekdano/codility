@@ -35,8 +35,23 @@
  * 		"MCMXCIV" returns 1994 	=> M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInteger = (roman) => {
-	
+const romanToInteger = (romanNum) => {
+	const convertor = {
+		I: 1,
+		V: 5,
+		X: 10,
+		L: 50,
+		C: 100,
+		D: 500,
+		M: 1000
+	};
+	return romanNum.split('').reduce((total, curr, index, arr) => {
+		const next = arr[index+1];
+		if (curr === 'I' && (next === 'V' || next === 'X')) return total - 1;
+		else if (curr === 'X' && (next === 'L' || next === 'C')) return total - 10;
+		else if (curr === 'C' && (next === 'D' || next === 'M')) return total - 100;
+		else return total + convertor[curr];
+	}, 0);
 };
 
 module.exports = romanToInteger;

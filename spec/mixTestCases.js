@@ -59,10 +59,14 @@ describe('romanToInteger function', () => {
 	});
 
 	it('should return 58 from "LVIII"', () => {
-		expect(romanToInteger('III')).to.equal(3);
+		expect(romanToInteger('LVIII')).to.equal(58);
 	});
 
 	it('should return 1994 from "MCMXCIV"', () => {
 		expect(romanToInteger('MCMXCIV')).to.equal(1994);
+	});
+
+	it('should return 4499 from "MMMMCDXCIX"', () => {
+		expect(romanToInteger('MMMMCDXCIX')).to.equal(4499);
 	});
 });
