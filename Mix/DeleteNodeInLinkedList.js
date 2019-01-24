@@ -19,6 +19,6 @@
  * 	The given node can be the tail.
  */
 
-const deleteNode = (head, node) => {};
+const deleteNode = (head, nodeValue) => {};
 
 module.exports = deleteNode;

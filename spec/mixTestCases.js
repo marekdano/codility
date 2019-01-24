@@ -1,9 +1,11 @@
 let path = require('path');
 let expect = require('chai').expect;
 
+let ListNode = require(path.join(__dirname, '../Extra/shared/ListNode'));
 let titleToNumber = require(path.join(__dirname, '../Mix/ExcelSheetColumnNumber'));
 let firstUniqChar = require(path.join(__dirname, '../Mix/FirstUniqueCharInString'));
 let romanToInteger = require(path.join(__dirname, '../Mix/RomanNumToInteger'));
+let deleteNode = require(path.join(__dirname, '../Mix/DeleteNodeInLinkedList'));
 
 describe('titleToNumber function', () => {
   it('exists', () => {
@@ -68,5 +70,39 @@ describe('romanToInteger function', () => {
 
 	it('should return 4499 from "MMMMCDXCIX"', () => {
 		expect(romanToInteger('MMMMCDXCIX')).to.equal(4499);
+	});
+});
+
+describe('deleteNode function', () => {
+	let head, a, b, c, d;
+	beforeEach(() => {
+		a = new ListNode("1");
+    b = new ListNode("2");
+    c = new ListNode("3");
+    d = new ListNode("4");
+		
+		a.next = b;
+    b.next = c;
+		c.next = d;
+		head = a;
+	});
+
+	it('exists', () => {
+		expect(deleteNode).to.be.a('function');
+	});
+
+	it('should delete node in the middle of list', () => {
+		deleteNode(head,"3");
+    expect(b.next.value).to.equal("4");
+	});
+
+	it('should delete node at the end of list', () => {
+		deleteNode(head,"4");
+    expect(c.next).to.equal(null);
+	});
+
+	it('should delete node at the start of list', () => {
+		deleteNode(head,"1");
+    expect(head.value).to.equal("2");
 	});
 });
