@@ -19,6 +19,20 @@
  * 	The given node can be the tail.
  */
 
-const deleteNode = (head, nodeValue) => {};
+const deleteNode = (head, nodeValue) => {
+	let prevNode = null;
+	let currNode = head;
+
+	if (head.value === nodeValue) {
+		head = head.next;
+		return;
+	}
+
+	while(currNode != null && currNode.value !== nodeValue) {
+		prevNode = currNode;
+		currNode = currNode.next;
+	} 
+	prevNode.next = currNode.next;
+};
 
 module.exports = deleteNode;

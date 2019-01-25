@@ -92,17 +92,17 @@ describe('deleteNode function', () => {
 	});
 
 	it('should delete node in the middle of list', () => {
-		deleteNode(head,"3");
-    expect(b.next.value).to.equal("4");
+		deleteNode(head, "3");
+    expect(head.next.next.value).to.equal("4");
 	});
 
 	it('should delete node at the end of list', () => {
-		deleteNode(head,"4");
+		deleteNode(head, "4");
     expect(c.next).to.equal(null);
 	});
 
 	it('should delete node at the start of list', () => {
-		deleteNode(head,"1");
+		deleteNode(head, "1");
     expect(head.value).to.equal("2");
 	});
 });
