@@ -25,7 +25,7 @@ const deleteNode = (head, nodeValue) => {
 
 	if (head.value === nodeValue) {
 		head = head.next;
-		return;
+		return head;
 	}
 
 	while(currNode != null && currNode.value !== nodeValue) {

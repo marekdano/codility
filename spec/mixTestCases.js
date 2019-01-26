@@ -74,17 +74,16 @@ describe('romanToInteger function', () => {
 });
 
 describe('deleteNode function', () => {
-	let head, a, b, c, d;
+	let head, b, c, d;
 	beforeEach(() => {
-		a = new ListNode("1");
+		head = new ListNode("1");
     b = new ListNode("2");
     c = new ListNode("3");
     d = new ListNode("4");
 		
-		a.next = b;
+		head.next = b;
     b.next = c;
 		c.next = d;
-		head = a;
 	});
 
 	it('exists', () => {
@@ -98,11 +97,11 @@ describe('deleteNode function', () => {
 
 	it('should delete node at the end of list', () => {
 		deleteNode(head, "4");
-    expect(c.next).to.equal(null);
+    expect(head.next.next.next).to.equal(null);
 	});
 
 	it('should delete node at the start of list', () => {
-		deleteNode(head, "1");
-    expect(head.value).to.equal("2");
+		const h = deleteNode(head, "1");
+    expect(h.value).to.equal("2");
 	});
 });
