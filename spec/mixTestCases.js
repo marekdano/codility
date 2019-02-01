@@ -6,6 +6,7 @@ let titleToNumber = require(path.join(__dirname, '../Mix/ExcelSheetColumnNumber'
 let firstUniqChar = require(path.join(__dirname, '../Mix/FirstUniqueCharInString'));
 let romanToInteger = require(path.join(__dirname, '../Mix/RomanNumToInteger'));
 let deleteNode = require(path.join(__dirname, '../Mix/DeleteNodeInLinkedList'));
+let isAnagram = require(path.join(__dirname, '../Mix/IsAnagram'));
 
 describe('titleToNumber function', () => {
   it('exists', () => {
@@ -103,5 +104,19 @@ describe('deleteNode function', () => {
 	it('should delete node at the start of list', () => {
 		const h = deleteNode(head, "1");
     expect(h.value).to.equal("2");
+	});
+});
+
+describe('isAnagram', () => {
+	it('exists', () => {
+		expect(isAnagram).to.be.a('function');
+	});
+
+	it('should return true when two strings are anagram', () => {
+		expect(isAnagram("anagram", "nagaram")).to.equal(true);
+	});
+
+	it('should return false when two strings are NOT anagram', () => {
+		expect(isAnagram("rat", "car")).to.equal(false);
 	});
 });
