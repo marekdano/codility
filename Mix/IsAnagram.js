@@ -4,10 +4,16 @@
  * Example 1: s = "anagram", t = "nagaram" => return true
  * Example 2: s = "rat", t = "car" => return false
  * 
- * Note: You may assume the string contains only lowercase alphabets.
  */
+// Complexity Time O(n log n), Space (1)
 
 const isAnagram = (s, t) => {
-	return;
+	const listS = s.split('');
+	const listT = t.split('');
+	if (listS.length !== listT.length) {
+		return false;
+	}
+
+	return listS.sort().join('') === listT.sort().join('');
 }
 module.exports = isAnagram;
