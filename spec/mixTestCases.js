@@ -7,6 +7,7 @@ let firstUniqChar = require(path.join(__dirname, '../Mix/FirstUniqueCharInString
 let romanToInteger = require(path.join(__dirname, '../Mix/RomanNumToInteger'));
 let deleteNode = require(path.join(__dirname, '../Mix/DeleteNodeInLinkedList'));
 let isAnagram = require(path.join(__dirname, '../Mix/IsAnagram'));
+const alphabeticShift = require(path.join(__dirname, '../Mix/AlphabeticShift'));
 
 describe('titleToNumber function', () => {
   it('exists', () => {
@@ -118,5 +119,19 @@ describe('isAnagram', () => {
 
 	it('should return false when two strings are NOT anagram', () => {
 		expect(isAnagram("rat", "car")).to.equal(false);
+	});
+});
+
+describe('alphabeticShift', () => {
+	it('exists', () => {
+		expect(alphabeticShift).to.be.a('function');
+	});
+
+	it('should return empty string when empty string is provided', () => {
+		expect(alphabeticShift('')).to.equal('');
+	});
+
+	it('should return "dsbaz" string when "crazy" is provided', () => {
+		expect(alphabeticShift('crazy')).to.equal('dsbaz');
 	});
 });
