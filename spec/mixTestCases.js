@@ -131,6 +131,14 @@ describe('alphabeticShift', () => {
 		expect(alphabeticShift('')).to.equal('');
 	});
 
+	it('should throw error when input string contains other characters than alphabetic ones', () => {
+		expect(() => alphabeticShift('fds12$s')).to.throw('The input string contains oher character then alphbetic ones.');
+	});
+
+	it('should return "ZuMo" string when "AvNp" is provided', () => {
+		expect(alphabeticShift('ZuMo')).to.equal('AvNp');
+	});
+
 	it('should return "dsbaz" string when "crazy" is provided', () => {
 		expect(alphabeticShift('crazy')).to.equal('dsbaz');
 	});
