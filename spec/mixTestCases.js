@@ -150,15 +150,21 @@ describe('alternatingSums', () => {
 		expect(alternatingSums).to.be.a('function');
 	});
 
-	it('should return empty array when empty input array is provided', () => {
-		expect(alternatingSums([])).to.equal([]);
+	it('should return array of [0, 0] when empty input array is provided', () => {
+		const result = alternatingSums([]);
+		expect(result[0]).to.equal(0);
+		expect(result[1]).to.equal(0);
 	});
 
 	it('should return array with one element when input array contains just one element', () => {
-		expect(alternatingSums([10])).to.equal([10]);
+		const result = alternatingSums([10]);
+		expect(result[0]).to.equal(10);
+		expect(result[1]).to.equal(0);
 	});
 
 	it('should return array with two element when input array contains more than one element', () => {
-		expect(alternatingSums([50, 60, 60, 45, 70])).to.equal([180, 105]);
+		const result = alternatingSums([50, 60, 60, 45, 70]);
+		expect(result[0]).to.equal(180);
+		expect(result[1]).to.equal(105);
 	});
 })

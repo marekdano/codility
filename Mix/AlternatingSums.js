@@ -12,4 +12,15 @@
  *    output:     [180, 105]
  */
 
-const alternatingSums = (arr) => {};
+const alternatingSums = (arr) => {
+  const team1 = arr.filter((_, index) => index % 2 === 0);
+  const team2 = arr.filter((_, index) => index % 2 === 1);
+
+  return [sum(team1), sum(team2)];
+};
+
+const sum = (num) => {
+  return num.reduce((total, value) => total + value, 0);
+}
+
+module.exports = alternatingSums;
