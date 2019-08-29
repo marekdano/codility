@@ -7,6 +7,6 @@
       "mocha":"2.0.1"
   },
   "scripts": {
-    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js"
+    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js --watch"
   }
 }
