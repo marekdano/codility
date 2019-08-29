@@ -8,6 +8,7 @@ let romanToInteger = require(path.join(__dirname, '../Mix/RomanNumToInteger'));
 let deleteNode = require(path.join(__dirname, '../Mix/DeleteNodeInLinkedList'));
 let isAnagram = require(path.join(__dirname, '../Mix/IsAnagram'));
 const alphabeticShift = require(path.join(__dirname, '../Mix/AlphabeticShift'));
+const alternatingSums = require(path.join(__dirname, '../Mix/AlternatingSums'));
 
 describe('titleToNumber function', () => {
   it('exists', () => {
@@ -143,3 +144,21 @@ describe('alphabeticShift', () => {
 		expect(alphabeticShift('crazy')).to.equal('dsbaz');
 	});
 });
+
+describe('alternatingSums', () => {
+	it('exists', () => {
+		expect(alternatingSums).to.be.a('function');
+	});
+
+	it('should return empty array when empty input array is provided', () => {
+		expect(alternatingSums([])).to.equal([]);
+	});
+
+	it('should return array with one element when input array contains just one element', () => {
+		expect(alternatingSums([10])).to.equal([10]);
+	});
+
+	it('should return array with two element when input array contains more than one element', () => {
+		expect(alternatingSums([50, 60, 60, 45, 70])).to.equal([180, 105]);
+	});
+})
