@@ -7,7 +7,7 @@
     "mocha": "2.0.1"
   },
   "scripts": {
-    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js && jest"
+    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js && jest --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
