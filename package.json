@@ -3,10 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-      "chai": "~1.8.0",
-      "mocha":"2.0.1"
+    "chai": "~1.8.0",
+    "mocha": "2.0.1"
   },
   "scripts": {
-    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js --watch"
+    "test": "mocha ./spec/algorithms.js ./spec/interviewCakeTestCases.js ./spec/mixTestCases.js && jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
   }
 }

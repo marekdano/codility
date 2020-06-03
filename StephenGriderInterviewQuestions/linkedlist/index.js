@@ -2,14 +2,14 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
-class Node {
+export class Node {
   constructor(data, next = null) {
     this.data = data;
     this.next = next;
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -146,5 +146,3 @@ class LinkedList {
     previous.next = node;
   }
 }
-
-module.exports = { Node, LinkedList };
