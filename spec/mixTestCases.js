@@ -9,6 +9,7 @@ let deleteNode = require(path.join(__dirname, '../Mix/DeleteNodeInLinkedList'));
 let isAnagram = require(path.join(__dirname, '../Mix/IsAnagram'));
 const alphabeticShift = require(path.join(__dirname, '../Mix/AlphabeticShift'));
 const alternatingSums = require(path.join(__dirname, '../Mix/AlternatingSums'));
+const findSecondLargestNumber= require(path.join(__dirname, '../Mix/FindSecondLargestInArray'));
 
 describe('titleToNumber function', () => {
   it('exists', () => {
@@ -167,4 +168,40 @@ describe('alternatingSums', () => {
 		expect(result[0]).to.equal(180);
 		expect(result[1]).to.equal(105);
 	});
-})
+});
+
+describe('findSecondLargestNumber', () => {
+	it('exists', () => {
+		expect(findSecondLargestNumber).to.be.a('function');
+	});
+
+	it('should return "undefined" when array is empty or array contains element other than number', () => {
+		expect(findSecondLargestNumber([])).to.equal(undefined);
+	});
+
+	it('should return "undefined" when array contains one element only', () => {
+		expect(findSecondLargestNumber([1])).to.equal(undefined);
+	});
+
+	it('should return "undefined" when array contains element other than number', () => {
+		expect(findSecondLargestNumber([1, 3, 'text'])).to.equal(undefined);
+	});
+
+	it('should return "undefined" when array contains all the same elements', () => {
+		expect(findSecondLargestNumber([1, 1, 1])).to.equal(undefined);
+	});
+
+	it('should return the second largest number', () => {
+		expect(findSecondLargestNumber([4, 1002, 2, 5, 77])).to.equal(77);
+	});
+
+	it('should return the second largest number if array contains zeros', () => {
+		expect(findSecondLargestNumber([0, 1])).to.equal(0);
+		expect(findSecondLargestNumber([1, 0])).to.equal(0);
+		expect(findSecondLargestNumber([1, 1, 1, 0])).to.equal(0);
+	});
+
+	it('should return the second largest number if array contains negative numbers', () => {
+		expect(findSecondLargestNumber([-3, -110, -105, -10])).to.equal(-10);
+	});
+});
