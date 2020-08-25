@@ -18,5 +18,32 @@ export class ListNode {
 }
 
 export const addTwoNumbersAsLinkedList = (list1, list2) => {
-	return null
+	function convertLinkedListToNumber(list) {
+		let current = list
+		let stringNumber = current.value.toString()
+		while(current.next) {
+			stringNumber = current.next.value.toString() + stringNumber
+			current = current.next
+ 		}
+		return +stringNumber
+	}
+
+	function convertNumberToLinkedList(number) {
+		let head
+		let pointer
+		number.toString().split('').reverse().forEach((num, index) => {
+			const node = new ListNode(+num)
+			if (index === 0) {
+				head = node
+				pointer = node
+			} else {
+				pointer.next = node
+				pointer = pointer.next
+			}
+		})
+
+		return head
+	}
+
+	return convertNumberToLinkedList(convertLinkedListToNumber(list1) + convertLinkedListToNumber(list2))
 }
