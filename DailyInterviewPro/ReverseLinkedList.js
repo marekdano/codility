@@ -25,11 +25,21 @@ export const getListValues = (list) => {
 	return result.trim()
 }
 
-export const reverseListIteratively = (list) => {
-	return null
+export const reverseListIteratively = list => {
+	let previous = null
+	let current = list
+	let following = list
+
+	while(current) {
+		following = current.next
+		current.next = previous
+		previous = current
+		current = following
+	}
+	return previous
 } 
 
-export const reverseListRecursively = (list) => {
+export const reverseListRecursively = list => {
 	return null
 }
 
