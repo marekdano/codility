@@ -1,7 +1,7 @@
 import { ListNode, getListValues, reverseListIteratively, reverseListRecursively } from '../ReverseLinkedList'
 
 describe('ReverseLinkedList', () => {
-	it('should reverse valid linked list', () => {
+	it.only('should reverse valid linked list', () => {
 		const listHead = new ListNode(4)
 		const node1 = new ListNode(3)
 		listHead.next = node1
@@ -13,11 +13,12 @@ describe('ReverseLinkedList', () => {
 		node3.next = listTail
 
 		const originalListValues = getListValues(listHead)
-		const reversedList = reverseListIteratively(listHead)
-		const reversedList2 = reverseListRecursively(listHead)
-
 		expect(originalListValues).toBe('4 3 2 1 0')
+
+		const reversedList = reverseListIteratively(listHead)
 		expect(getListValues(reversedList)).toBe('0 1 2 3 4')
-		expect(getListValues(reversedList2)).toBe('0 1 2 3 4')
+
+		const reversedList2 = reverseListRecursively(reversedList)		
+		expect(getListValues(reversedList2)).toBe('4 3 2 1 0')
 	})
 })

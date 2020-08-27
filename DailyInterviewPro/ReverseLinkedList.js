@@ -39,8 +39,14 @@ export const reverseListIteratively = list => {
 	return previous
 } 
 
-export const reverseListRecursively = list => {
-	return null
+export const reverseListRecursively = head => {
+	if (!head || !head.next) return head
+
+	const first = reverseListRecursively(head.next)
+	head.next.next = head
+	head.next = null
+
+	return first
 }
 
 
