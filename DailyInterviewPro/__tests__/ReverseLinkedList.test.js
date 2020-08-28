@@ -1,7 +1,7 @@
 import { ListNode, getListValues, reverseListIteratively, reverseListRecursively } from '../ReverseLinkedList'
 
 describe('ReverseLinkedList', () => {
-	it.only('should reverse valid linked list', () => {
+	it('should reverse valid linked list', () => {
 		const listHead = new ListNode(4)
 		const node1 = new ListNode(3)
 		listHead.next = node1
