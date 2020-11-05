@@ -6,5 +6,5 @@
  */
 
 export const findSingleElemInArray = (arr) => {
-	return
+	return arr.reduce((result, elem) => result ^ elem)
 } 
