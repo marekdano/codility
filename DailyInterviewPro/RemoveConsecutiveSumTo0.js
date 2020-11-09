@@ -18,5 +18,27 @@ export class Node {
 }
 
 export const removeConsecutiveSumTo0 = (head) => {
-	return null
+	const tempList = new Node(0)
+  tempList.next = head
+  const map = {}
+  map[0] = tempList;
+	
+	let sum = 0;
+	while(head) {
+    sum += head.value
+    map[sum] = head;
+    head = head.next;
+  }
+	
+	head = tempList;
+  sum = 0;
+  while(head) {
+    sum += head.value;
+    const temp = map[sum];
+    if(temp != head){
+      head.next = temp.next
+    }
+    head = head.next;
+  }
+  return tempList.next;
 }
