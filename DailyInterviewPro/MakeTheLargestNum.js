@@ -9,5 +9,13 @@
  */
 
 export const largestNum = (nums) => {
-	return 0
+	const numsOfStrings = nums.map(num => '' + num)
+
+	numsOfStrings.sort((a, b) => {
+		const xy = a + b
+		const yx = b + a
+		return +xy < +yx
+	})
+	
+	return +numsOfStrings.join('')
 } 
