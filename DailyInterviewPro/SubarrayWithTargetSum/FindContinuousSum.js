@@ -7,6 +7,25 @@
  */
 
 export const findContinuousK = (arr, k) => {
-  let resultArr = [];
-  return resultArr;
+  let currentSum = arr[0];
+  let start = 0;
+  let i = 1;
+
+  while (i <= arr.length) {
+    while (currentSum > k && start < i - 1) {
+      currentSum -= arr[start++];
+    }
+
+    if (currentSum === k) {
+      return arr.slice(start, i);
+    }
+
+    if (i < arr.length) {
+      currentSum += arr[i];
+    }
+
+    i++;
+  }
+
+  return [];
 };
